@@ -1,4 +1,4 @@
-# S56_Worst_Momos_InDelhi
+# S56_Worst_Momos_In_Delhi
 
 ## Project idea :- 
  List of worst Momo's available in Delhi
