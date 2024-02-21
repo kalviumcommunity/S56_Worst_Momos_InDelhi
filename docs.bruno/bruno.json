@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "S56_Worst_Momos_InDelhi",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
