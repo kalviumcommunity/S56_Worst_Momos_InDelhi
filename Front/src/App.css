@@ -1,0 +1,42 @@
+
+body{
+  background-color: brown;
+  margin: 0;
+  padding: 0;
+
+}
+.Navbar {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  height: 4vw;
+  box-shadow: 0vw 1vw 1vw black;
+}
+
+
+ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  margin-top: 1vw;
+  font-size:2vw;
+  gap: 5vw;
+}
+
+ul li {
+  margin-right: 20px;
+}
+form{
+  margin-top: 2vw;
+  margin-left: 37vw;
+}
+input{
+  width: 26vw;
+  height: 2vw;
+  text-align: center;
+  font-size: 1vw;
+  border-radius: 0.5vw;
+  box-shadow: 0vw 1vw 1vw black;
+}
