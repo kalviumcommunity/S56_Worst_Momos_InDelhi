@@ -5,7 +5,9 @@ require('dotenv').config()
 const mongoose = require('mongoose')
 const uri  = process.env.URI
 let connection = 'Disconnected'
+const Router = require('./Route')
 
+app.use('/',Router)
 
 const connectToDB = async() =>{
   try{
