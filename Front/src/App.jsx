@@ -1,4 +1,5 @@
 import './App.css'
+import Home from './Component/Home'
 
 function App() {
   
@@ -18,6 +19,7 @@ function App() {
           <input type='text' placeholder='Search items' ></input>
         </form>
       </div>
+      <Home/>
     </>
   )
 }
