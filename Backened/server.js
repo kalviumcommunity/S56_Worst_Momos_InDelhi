@@ -8,7 +8,7 @@ const uri = process.env.URI;
 let connection = 'Disconnected'
 const Router = require('./Route')
 const cors = require('cors')
-// const UserModule = require('./User.js')
+const UserModule = require('./User.js')
 
 app.use('/', Router)
 app.use(cors())

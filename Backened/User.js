@@ -7,5 +7,5 @@ const UserSchema = new mongoose.Schema({
     Images:String
 })
 
-const UserModule = mongoose.model("WorstmomosCollections",UserSchema)
+const UserModule = mongoose.model("worstmomoscollections",UserSchema)
 module.exports = UserModule
