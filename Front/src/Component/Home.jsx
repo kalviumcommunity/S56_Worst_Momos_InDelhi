@@ -21,7 +21,7 @@ function Home() {
             <img src={vish} alt='heh'></img><br></br>
             <b>Location:-Chandi Chowk</b>
             <h4>Review:-"N/A"</h4>
-            <h4>Rating:-"3./5"</h4>
+            <h4>Rating:-"3.0/5"</h4>
         </div>
       
     </div>
