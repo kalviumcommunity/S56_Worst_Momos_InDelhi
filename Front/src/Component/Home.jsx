@@ -1,31 +1,36 @@
-import React from 'react'
-import chandi from '../assets/chandi.jpg'
-import karolbagh from '../assets/karolbagh.jpg'
-import vish from '../assets/vish.jpg'
+import React, { useState, useEffect } from 'react';
+import Card from './Card';
+
 function Home() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://s56-worst-momos-indelhi.onrender.com/getUsers');
+        const jsonData = await response.json();
+        setData(jsonData);
+      } catch (error) {
+        console.error('Error fetching data: ', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className='container'>
-        <div className='cont1'> 
-            <img src={chandi} alt='heh'></img><br></br>
-            <b>Location:-Karol Bagh</b>
-            <h4>Review:-"N/A"</h4>
-            <h4>Rating:-"4.0/5"</h4>
-        </div>
-        <div className='cont2'> 
-            <img src={karolbagh} alt='heh'></img><br></br>
-            <b>Location:-Vishwavidyalaya</b>
-            <h4>Review:-"N/A"</h4>
-            <h4>Rating:-"3.8/5"</h4>
-        </div>
-        <div className='cont3'> 
-            <img src={vish} alt='heh'></img><br></br>
-            <b>Location:-Chandi Chowk</b>
-            <h4>Review:-"N/A"</h4>
-            <h4>Rating:-"3.0/5"</h4>
-        </div>
-      
+      {data.map((item) => (
+        <Card
+          key={item._id}
+          img={item.img}
+          location={item.location}
+          review={item.review}
+          ratings={item.ratings}
+        />
+      ))}
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

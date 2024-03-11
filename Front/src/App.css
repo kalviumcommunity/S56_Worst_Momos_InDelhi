@@ -48,7 +48,7 @@ input{
   margin-left: 5vw;
   margin-top: 5vw;
   margin-right: 5vw;
-  
+  flex-direction: column;
 }
 .cont1,.cont2,.cont3{
   background-color: antiquewhite;
