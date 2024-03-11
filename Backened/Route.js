@@ -1,3 +1,4 @@
+import UserModule from './User';
 const express = require('express')
 const app = express.Router()
 const port =  3000;
@@ -14,6 +15,7 @@ app.patch('/patch',(req,res)=>{
 app.put('/put',(req,res)=>{
     res.json('put')
 })
+
 
 
 

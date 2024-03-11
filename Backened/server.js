@@ -4,7 +4,6 @@ const port = 3000
 require('dotenv').config()
 const mongoose = require('mongoose')
 const uri = process.env.URI;
-
 let connection = 'Disconnected'
 const Router = require('./Route')
 const cors = require('cors')
@@ -19,6 +18,16 @@ app.get('/getUsers', (req, res) => {
   UserModule.find()
     .then(users => res.json(users))
     .catch(err => res.json(err))
+})
+
+app.post('/entry',async(req,res)=>{
+  try{
+      const newData =  await UserModule.create(req.body)
+      res.send(req.body)
+  }
+  catch(error){
+      console.log(error)
+  }
 })
 
 

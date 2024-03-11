@@ -42,6 +42,15 @@ input{
   border-radius: 0.5vw;
   box-shadow: 0vw 1vw 1vw black;
 }
+.form{
+  margin-left: 3vw;
+  width: 5vw;
+  font-size: 1vw;
+  border-radius: 0.3vw;
+  background-color: rgb(202, 72, 72);
+  font-weight: 900;
+  box-shadow: 0vw 0.1vw 1vw black;
+}
 .container{
   display: flex;
   gap: 5vw;
