@@ -1,4 +1,4 @@
-import UserModule from './User';
+const UserModule= require('./User.js')
 const express = require('express')
 const app = express.Router()
 const port =  3000;
