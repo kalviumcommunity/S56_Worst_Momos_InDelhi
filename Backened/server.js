@@ -4,7 +4,6 @@ const port = 3000
 require('dotenv').config()
 const mongoose = require('mongoose')
 const uri = process.env.URI;
-
 let connection = 'Disconnected'
 const Router = require('./Route')
 const cors = require('cors')
@@ -20,6 +19,8 @@ app.get('/getUsers', (req, res) => {
     .then(users => res.json(users))
     .catch(err => res.json(err))
 })
+
+
 
 
 const connectToDB = async () => {
