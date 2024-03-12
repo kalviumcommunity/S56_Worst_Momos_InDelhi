@@ -15,7 +15,15 @@ app.patch('/patch',(req,res)=>{
 app.put('/put',(req,res)=>{
     res.json('put')
 })
-
+app.post('/entry',async(req,res)=>{
+    try{
+        const newData =  await UserModule.create(req.body)
+        res.send(newData)
+    }
+    catch(error){
+        console.log(error)
+    }
+  })
 
 
 

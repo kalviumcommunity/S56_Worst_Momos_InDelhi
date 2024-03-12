@@ -8,7 +8,7 @@ const[review,setReview]=useState("")
 const[ratings,setRatings]=useState("")
 
 const handleSubmit=async(e)=>{
-  
+  e.preventDefault();
   try{
     const res = await axios.post('https://s56-worst-momos-indelhi.onrender.com/entry',{images,location,review,ratings})
     return res;

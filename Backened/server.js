@@ -20,15 +20,7 @@ app.get('/getUsers', (req, res) => {
     .catch(err => res.json(err))
 })
 
-app.post('/entry',async(req,res)=>{
-  try{
-      const newData =  await UserModule.create(req.body)
-      res.send(req.body)
-  }
-  catch(error){
-      console.log(error)
-  }
-})
+
 
 
 const connectToDB = async () => {
