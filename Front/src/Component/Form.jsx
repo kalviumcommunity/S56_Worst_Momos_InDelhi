@@ -10,7 +10,7 @@ const[ratings,setRatings]=useState("")
 const handleSubmit=async(e)=>{
   e.preventDefault();
   try{
-    const res = await axios.post('https://s56-worst-momos-indelhi.onrender.com/entry',{images,location,review,ratings})
+    const res = await axios.post('http://localhost:3000/entry',{images,location,review,ratings})
     return res;
   }
   catch(error){
@@ -27,7 +27,7 @@ const handleSubmit=async(e)=>{
         <input type='text' placeholder='review' onChange={(e)=>{setReview(e.target.value)}}></input>
         <input type='text' placeholder='ratings' onChange={(e)=>{setRatings(e.target.value)}}></input>
         </form>
-        <button type='submit'></button>
+        <button type='submit'>Submit</button>
     </div>
 
 
