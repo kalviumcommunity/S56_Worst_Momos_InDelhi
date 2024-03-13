@@ -1,16 +1,16 @@
 import { useEffect } from 'react'
 import './App.css'
 import Home from './Component/Home'
-import axios from 'axios'
 import { Link ,Route ,Routes} from 'react-router-dom'
 import Form from './Component/Form'
+import Update from './Component/Update'
 
 
 function App() {
-  useEffect(()=>{
-    axios.get('')
-    .then()
-  })
+  // useEffect(()=>{
+  //   axios.get('')
+  //   .then()
+  // })
 
 
   return (
@@ -36,8 +36,9 @@ function App() {
       
       <div>
       <Routes>
-      <Route path='/' element={<Home />}></Route>
+        <Route path='/' element={<Home />}></Route>
         <Route path='/form' element={<Form />}></Route>
+        <Route path='/update' element={<Update/>}></Route>
       </Routes>
 
 
