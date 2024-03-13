@@ -7,10 +7,10 @@ import Form from './Component/Form'
 
 
 function App() {
-  // useEffect(()=>{
-  //   axios.get('')
-  //   .then()
-  // })
+  useEffect(()=>{
+    axios.get('')
+    .then()
+  })
 
 
   return (

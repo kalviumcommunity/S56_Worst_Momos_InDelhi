@@ -2,8 +2,11 @@ const UserModule= require('./User.js')
 const express = require('express')
 const app = express.Router()
 const port =  3000;
+const cors = require('cors')
 
 app.use(express.json())
+
+app.use(cors())
 
 app.get('/get',(req,res)=>{
     res.json('get')
