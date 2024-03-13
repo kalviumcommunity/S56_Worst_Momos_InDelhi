@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
+import axios from "axios";
 
 function Home() {
   const [data, setData] = useState([]);
@@ -7,9 +8,9 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://s56-worst-momos-indelhi.onrender.com/getUsers');
-        const jsonData = await response.json();
-        setData(jsonData);
+        const response = await axios.get('https://s56-worst-momos-indelhi.onrender.com/getUsers');
+        console.log(response)
+        setData(response.data);
       } catch (error) {
         console.error('Error fetching data: ', error);
       }

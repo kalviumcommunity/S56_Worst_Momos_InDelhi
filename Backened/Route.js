@@ -30,6 +30,41 @@ app.post('/entry',async(req,res)=>{
     }
   })
 
+  app.get('/getUsers:id',async(req,res)=>{
+    try{
+        const id = req.params.id
+        const newResp = await UserModule.find({_id:id})
+        console.log(newResp)
+        res.send(newResp)
+    }
+    catch(error){
+        console.log(error)
+    }
+  })
+
+  app.delete('/getUsers/delete/:id',async (req,res)=>{
+    try{
+        const id = req.params.id
+        const newDelete = await UserModule.findByIdAndDelete({_id:id})
+        console.log(newDelete)
+        res.send(newDelete)
+    }
+    catch(error){
+        console.log(error)
+    }
+  })
+  app.put('/getUsers/update/:id',async(req,res)=>{
+    try{
+        const id = req.params.id
+        const newUpd = await UserModule.findByIdAndUpdate({_id:id})
+        console.log(newUpd)
+        res.send(newUpd)
+    }
+    catch(error){
+        console.lof(error)
+    }
+  })
+
 
 
 module.exports = app;

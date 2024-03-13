@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Card = ({ location, review, ratings, img }) => {
   return (
@@ -8,7 +9,7 @@ const Card = ({ location, review, ratings, img }) => {
       <b>Location: {location}</b>
       <h4>Review: {review}</h4>
       <h4>Rating: {ratings}</h4>
-       <button type='update'>Update</button>
+       <Link to="/update"><button type='update'>Update</button></Link>
       <button type='delete'>Delete</button>
     </div>
   );
