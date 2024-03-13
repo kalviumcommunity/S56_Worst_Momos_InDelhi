@@ -1,14 +1,29 @@
 import React from "react";
 import { useEffect,useState} from "react";
 import axios from 'axios';
+import { useParams } from "react-router-dom";
 
 
 function UpdateUsers(){
+    const {id} = useParams()
     const [images, setImages] = useState("");
     const [location, setLocation] = useState("");
     const [review, setReview] = useState("");
     const [ratings, setRatings] = useState("");
 
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await axios.get('https://s56-worst-momos-indelhi.onrender.com/getUsers/'+id);
+            console.log(response)
+            setData(response.data);
+          } catch (error) {
+            console.error('Error fetching data: ', error);
+          }
+        };
+    
+        fetchData();
+      }, []);
 
 
 
@@ -16,7 +31,7 @@ function UpdateUsers(){
 const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://s56-worst-momos-indelhi.onrender.com', { img:images, location, review, ratings });
+      const res = await axios.put('https://s56-worst-momos-indelhi.onrender.com'+id, { img:images, location, review, ratings });
       console.log(res.update,"success"); 
     //   Navigate("/")
     } catch (error) {

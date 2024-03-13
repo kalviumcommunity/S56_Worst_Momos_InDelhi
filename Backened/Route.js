@@ -30,10 +30,10 @@ app.post('/entry',async(req,res)=>{
     }
   })
 
-  app.get('/getUsers:id',async(req,res)=>{
+  app.get('/getUsers/:id',async(req,res)=>{
     try{
         const id = req.params.id
-        const newResp = await UserModule.find({_id:id})
+        const newResp = await UserModule.findById({_id:id})
         console.log(newResp)
         res.send(newResp)
     }
