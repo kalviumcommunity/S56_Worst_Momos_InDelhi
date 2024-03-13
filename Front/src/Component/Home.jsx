@@ -28,7 +28,10 @@ function Home() {
           review={item.review}
           ratings={item.ratings}
         />
+       
       ))}
+      
+     
     </div>
   );
 }

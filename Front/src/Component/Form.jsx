@@ -1,39 +1,35 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react';
+import axios from 'axios';
 
 function Form() {
-const[images,setImages]=useState("")
-const[location,setLocatiom]=useState("")
-const[review,setReview]=useState("")
-const[ratings,setRatings]=useState("")
+  const [images, setImages] = useState("");
+  const [location, setLocation] = useState("");
+  const [review, setReview] = useState("");
+  const [ratings, setRatings] = useState("");
 
-const handleSubmit=async(e)=>{
-  e.preventDefault();
-  try{
-    const res = await axios.post('https://s56-worst-momos-indelhi.onrender.com/entry',{images,location,review,ratings})
-    return res;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post('https://s56-worst-momos-indelhi.onrender.com/entry', { img:images, location, review, ratings });
+      
+      console.log(res.data); 
+    } catch (error) {
+      console.log(error);
+    }
   }
-  catch(error){
-    console.log(error)
-  }
-}
 
   return (
-  <div className='form' onSubmit={handleSubmit}>
-    <div>
-      <form action="">
-       <input type='text' placeholder='images' onChange={(e)=>{setImages(e.target.value)}}></input>
-        <input type='text' placeholder='location' onChange={(e)=>{setLocatiom(e.target.value)}}></input>
-        <input type='text' placeholder='review' onChange={(e)=>{setReview(e.target.value)}}></input>
-        <input type='text' placeholder='ratings' onChange={(e)=>{setRatings(e.target.value)}}></input>
-        </form>
-        <button type='submit'></button>
+    <div className='form'>
+      <form onSubmit={handleSubmit}>
+        <input type='text' placeholder='images' value={images} onChange={(e) => { setImages(e.target.value) }} />
+        <input type='text' placeholder='location' value={location} onChange={(e) => { setLocation(e.target.value) }} />
+        <input type='text' placeholder='review' value={review} onChange={(e) => { setReview(e.target.value) }} />
+        <input type='text' placeholder='ratings' value={ratings} onChange={(e) => { setRatings(e.target.value) }} />
+        <button type='submit'>Submit</button>
+        
+      </form>
     </div>
-
-
-
-  </div>
-  )
+  );
 }
 
-export default Form
+export default Form;

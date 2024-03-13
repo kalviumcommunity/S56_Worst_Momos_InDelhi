@@ -8,6 +8,8 @@ const Card = ({ location, review, ratings, img }) => {
       <b>Location: {location}</b>
       <h4>Review: {review}</h4>
       <h4>Rating: {ratings}</h4>
+       <button type='update'>Update</button>
+      <button type='delete'>Delete</button>
     </div>
   );
 }
