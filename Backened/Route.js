@@ -30,15 +30,17 @@ app.post('/entry',async(req,res)=>{
     }
   })
 
-  app.get('/getUsers/:id',async(req,res)=>{
+  app.get('/getUsers/:_id',async(req,res)=>{
     try{
-        const id = req.params.id
+        const id = req.params._id
+        console.log(id,"iddddd")
         const newResp = await UserModule.findById({_id:id})
         console.log(newResp)
         res.send(newResp)
     }
     catch(error){
         console.log(error)
+
     }
   })
 
@@ -56,7 +58,12 @@ app.post('/entry',async(req,res)=>{
   app.put('/getUsers/update/:id',async(req,res)=>{
     try{
         const id = req.params.id
-        const newUpd = await UserModule.findByIdAndUpdate({_id:id})
+        const newUpd = await UserModule.findByIdAndUpdate({_id:id},{
+            img:req.body.img,
+            location:req.body.location,
+            review: req.body.review,
+            ratings:req.body.raings
+        })
         console.log(newUpd)
         res.send(newUpd)
     }
