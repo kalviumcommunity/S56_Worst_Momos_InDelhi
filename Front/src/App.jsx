@@ -38,7 +38,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='/form' element={<Form />}></Route>
-        <Route path='/update' element={<Update/>}></Route>
+        <Route path='/update/:id' element={<Update/>}></Route>
       </Routes>
 
 

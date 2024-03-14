@@ -15,6 +15,7 @@ function Home() {
         console.error('Error fetching data: ', error);
       }
     };
+  
 
     fetchData();
   }, []);
@@ -24,6 +25,7 @@ function Home() {
       {data.map((item) => (
         <Card
           key={item._id}
+          id={item._id}
           img={item.img}
           location={item.location}
           review={item.review}
