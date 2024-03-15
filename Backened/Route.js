@@ -3,6 +3,7 @@ const express = require('express')
 const app = express.Router()
 const port =  3000;
 const cors = require('cors')
+const {validateInput} = require('./Validate.js')
 
 app.use(express.json())
 
@@ -23,6 +24,8 @@ app.put('/put',(req,res)=>{
 app.post('/entry',async(req,res)=>{
     try{
         const newData =  await UserModule.create(req.body)
+        const{error} = validateInput(req.body)
+        console.log(error)
         res.status(200).json(newData)
     }
     catch(error){
