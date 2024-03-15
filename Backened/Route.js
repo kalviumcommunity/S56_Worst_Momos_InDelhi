@@ -30,13 +30,15 @@ app.post('/entry',async(req,res)=>{
     }
   })
 
-  app.get('/getUsers/:_id',async(req,res)=>{
+  app.get('/getUsers/:id',(req,res)=>{
     try{
-        const id = req.params._id
+        const id = req.params.id
         console.log(id,"iddddd")
-        const newResp = await UserModule.findById({_id:id})
-        console.log(newResp)
-        res.send(newResp)
+    UserModule.findById({_id:id})
+    .then((el)=>res.json(el))
+    .catch((err)=>res.json(err))
+        // console.log(newResp)
+        // res.send(newResp)
     }
     catch(error){
         console.log(error)

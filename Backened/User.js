@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 const UserSchema = new mongoose.Schema({
 location:String,
 review:String,
-rating:String,
+ratings:String,
 img:String
 })
 UserSchema.set("versionKey",false)
