@@ -3,6 +3,7 @@ const express = require('express')
 const app = express.Router()
 const port =  3000;
 const cors = require('cors')
+const {validateInput} = require('./Validate.js')
 
 app.use(express.json())
 
@@ -25,6 +26,8 @@ app.put('/put',(req,res)=>{
 app.post('/entry',async(req,res)=>{
     try{
         const newData =  await UserModule.create(req.body)
+        const{error} = validateInput(req.body)
+        console.log(error)
         res.status(200).json(newData)
     }
     catch(error){
@@ -32,13 +35,15 @@ app.post('/entry',async(req,res)=>{
     }
   })
 
-  app.get('/getUsers/:_id',async(req,res)=>{
+  app.get('/getUsers/:id',(req,res)=>{
     try{
-        const id = req.params._id
+        const id = req.params.id
         console.log(id,"iddddd")
-        const newResp = await UserModule.findById({_id:id})
-        console.log(newResp)
-        res.send(newResp)
+    UserModule.findById({_id:id})
+    .then((el)=>res.json(el))
+    .catch((err)=>res.json(err))
+        // console.log(newResp)
+        // res.send(newResp)
     }
     catch(error){
         console.log(error)
