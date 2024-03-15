@@ -1,14 +1,14 @@
 const Joi = require('joi')
 
 function validateInput(){
-    const SignUpSchemea = Joi.object({
-        location:Joi.string.required(),
-        review:Joi.string.required(),
-        ratings:Joi.string.required(),
-        img:Joi.string.required()
+    const SignUpSchema = Joi.object({
+        location:Joi.string().required(),
+        review:Joi.string().required(),
+        ratings:Joi.string().required(),
+        img:Joi.string().required()
     })
 
-    const{error}=SignUpSchemea.validate();
+    const{error}=SignUpSchema.validate();
     if(error){
         console.log(error)
         return false
@@ -17,4 +17,4 @@ function validateInput(){
     
 }
 
-module.exports = validateInput;
+module.exports.validateInput = validateInput;

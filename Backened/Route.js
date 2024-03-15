@@ -1,7 +1,7 @@
 const UserModule= require('./User.js')
 const express = require('express')
 const app = express.Router()
-const port =  3000;
+const port =  3200;
 const cors = require('cors')
 const {validateInput} = require('./Validate.js')
 
