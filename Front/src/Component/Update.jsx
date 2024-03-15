@@ -16,7 +16,7 @@ const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const res = await axios.put(`https://s56-worst-momos-indelhi.onrender.com/getUsers/update/${id}`, {img, location, review, ratings });
-      console.log(res.update,"success"); 
+      console.log(res,"success"); 
     //   Navigate("/")
     } catch (error) {
       console.log(error);
@@ -28,10 +28,10 @@ const handleSubmit = async (e) => {
     axios.get(`https://s56-worst-momos-indelhi.onrender.com/getUsers/${id}`)
         .then(result => {
             console.log(result,"res");
-            // setImages(result.data.img);
-            // setLocation(result.data.location);
-            // setReview(result.data.review);
-            // setRatings(result.data.ratings);
+            setImages(result.data.img);
+            setLocation(result.data.location);
+            setReview(result.data.review);
+            setRatings(result.data.ratings);
         })
         .catch(err => console.log(err));
     }, []);
