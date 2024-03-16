@@ -4,6 +4,7 @@ import Home from './Component/Home'
 import { Link ,Route ,Routes} from 'react-router-dom'
 import Form from './Component/Form'
 import Update from './Component/Update'
+import Login from './Component/Login'
 
 
 function App() {
@@ -11,12 +12,14 @@ function App() {
   //   axios.get('')
   //   .then()
   // })
-
+  
+  const handleLogout = () => {
+    document.cookie = `username=; expires=Thu, 01 Jan 1970 00:00:00 GMT`;  
+  }
+  
 
   return (
-
     <>
-     
       <div className='Navbar'>
         <ul>
           <Link to="/"><li>Home</li></Link>
@@ -24,6 +27,9 @@ function App() {
           <li>About Us</li>
           <li>Contact Us</li>
           <Link to="/form"><button className='form'>Form</button></Link>
+          <Link to="/login"><button className='login'>LogIn</button></Link>
+          <button className='log' onClick={handleLogout}>LogOut</button>
+          
         </ul>
       </div>
       <div className='Search'>
@@ -39,6 +45,8 @@ function App() {
         <Route path='/' element={<Home />}></Route>
         <Route path='/form' element={<Form />}></Route>
         <Route path='/update/:id' element={<Update/>}></Route>
+        <Route path='/login' element={<Login/>}></Route>
+        
       </Routes>
 
 
