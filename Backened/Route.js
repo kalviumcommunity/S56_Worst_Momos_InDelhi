@@ -1,9 +1,10 @@
 const UserModule= require('./User.js')
 const express = require('express')
 const app = express.Router()
-const port =  3000;
+const port =  3200;
 const cors = require('cors')
-const {validateInput} = require('./Validate.js')
+const {validateSignup}  = require('./Validate.js')
+
 
 app.use(express.json())
 
@@ -25,8 +26,16 @@ app.put('/put',(req,res)=>{
 })
 app.post('/entry',async(req,res)=>{
     try{
-        const newData =  await UserModule.create(req.body)
-        const{error} = validateInput(req.body)
+        
+        const{error} = validateSignup(req.body)
+        if(error){
+            return res.status(400).send(error.details)
+        }
+        else{
+            const user = new UserModule(req.body)
+            await user.save()
+            res.send(user)
+        }
         console.log(error)
         res.status(200).json(newData)
     }
@@ -76,6 +85,19 @@ app.post('/entry',async(req,res)=>{
     }
     catch(error){
         console.lof(error)
+    }
+  })
+
+  app.post('/token',(req,res)=>{
+    try{
+        let data = eq.body
+        var token = jwt.sign({user:data.username},process.env.secret)
+        console.log(token)
+        res.send(token)
+
+    }
+    catch(error){
+        console.log(error)
     }
   })
 
