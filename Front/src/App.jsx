@@ -28,7 +28,7 @@ function App() {
           <li>Contact Us</li>
           <Link to="/form"><button className='form'>Form</button></Link>
           <Link to="/login"><button className='login'>LogIn</button></Link>
-          <button className='log' onClick={handleLogout}>LogOut</button>
+          <button className='log' onClick={handleLogout} classname='logout'>LogOut</button>
           
         </ul>
       </div>

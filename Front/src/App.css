@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Madimi+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ojuju:wght@200..800&family=Poppins:wght@300&display=swap');
 
 body{
-  background-color: rgba(133, 166, 167, 0.52);
+  background-color: rgb(107 122 194 / 54%);
   margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
@@ -42,7 +42,7 @@ input{
   border-radius: 0.5vw;
   box-shadow: 0vw 1vw 1vw black;
 }
-.form{
+.form {
   margin-left: 3vw;
   width: 5vw;
   font-size: 1vw;
@@ -66,12 +66,50 @@ input{
   text-align: center;
   box-shadow: 0vw 1vw 1vw black;
   border: 0.5vw 1.5vw 0.5vw black;
+  margin-top: -2vw;
 }
 img{
   width: 25vw;
   margin-top: 1.5vw;
   border-radius: 1.5vw;
 }
-.formbox{
+.formbox {
+  margin-top: 4vw;
+  background-color: white;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  padding: 20px;
+  width: 36vw;
+  margin-left: 30vw;
+  border-radius: 1vw;
+  box-shadow: 0vw 1vw 1vw black;
+}
+
+.formbox input{
+  margin-right: 36vw;
   margin-top: 2vw;
 }
+
+.formbox h1{
+  margin-bottom: -2vw;
+}
+
+.formbox button {
+  margin-top: 4vw;
+  margin-left: 8.8vw;
+  width: 8vw;
+  height: 3vw;
+  font-size: 1.5vw;
+  border-radius: 1vw;
+}
+
+.formbox button :hover{
+  background-color: rgb(202, 72, 72);
+}
+
+.update{
+  margin-left: 1vw;
+
+}
+
