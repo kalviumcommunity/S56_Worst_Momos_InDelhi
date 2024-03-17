@@ -4,7 +4,7 @@ const app = express.Router()
 const port =  3200;
 const cors = require('cors')
 const {validateSignup}  = require('./Validate.js')
-
+const jwt = require('jsonwebtoken')
 
 app.use(express.json())
 
@@ -86,12 +86,18 @@ app.post('/entry',async(req,res)=>{
     }
   })
 
-  app.post('/token',(req,res)=>{
+  app.post('/auth',async(req,res)=>{
+    
     try{
-        let data = eq.body
-        var token = jwt.sign({user:data.username},process.env.secret)
+        const{username,password} = req.body
+        const user ={
+            "username": username,
+            "password": password
+        }
+        var token = jwt.sign(user,process.env.ACCESS_TOKEN_SECRET)
         console.log(token)
-        res.send(token)
+        res.json(token)
+        res.cookie('token',token,{maxAge:365*24*60*60*1000})
 
     }
     catch(error){
