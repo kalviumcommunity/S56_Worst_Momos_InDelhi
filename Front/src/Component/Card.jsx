@@ -15,8 +15,8 @@ const Card = ({ id,location, review, ratings, img }) => {
       <b>Location: {location}</b>
       <h4>Review: {review}</h4>
       <h4>Rating: {ratings}</h4>
-       <Link to={`/update/${id}`}><button type='update' classname='update'>Update</button></Link>
-      <button type='delete' onClick={(e)=>handleDelete(id)} classname='Delete'>Delete</button>
+       <Link to={`/update/${id}`}><button type='update' className='update'>Update</button></Link>
+      <button type='delete' onClick={(e)=>handleDelete(id)} className='Delete'>Delete</button>
     </div>
   );
 }

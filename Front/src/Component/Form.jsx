@@ -29,7 +29,7 @@ function Form() {
         <input type='text' placeholder='location' value={location} onChange={(e) => { setLocation(e.target.value) }} />
         <input type='text' placeholder='review' value={review} onChange={(e) => { setReview(e.target.value) }} />
         <input type='text' placeholder='ratings' value={ratings} onChange={(e) => { setRatings(e.target.value) }} />
-        <button type='submit' classname='formsubmit'>Submit</button>
+        <button type='submit' className='formsubmit'>Submit</button>
         
       </form>
     </div>

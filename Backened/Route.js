@@ -96,7 +96,7 @@ app.post('/entry',async(req,res)=>{
         }
         var token = jwt.sign(user,process.env.ACCESS_TOKEN_SECRET)
         console.log(token)
-        res.json(token)
+        res.send(token)
         res.cookie('token',token,{maxAge:365*24*60*60*1000})
 
     }
