@@ -1,4 +1,5 @@
 const UserModule= require('./User.js')
+// const UserDetail = require('/User.js')
 const express = require('express')
 const app = express.Router()
 const port =  3200;
@@ -44,6 +45,29 @@ app.post('/entry',async(req,res)=>{
     }
   })
 
+  app.get("/savedUser",async(req,res)=>{
+    try{
+        const data = await UserDetail.find({})
+        res.json(data)
+    }
+    catch(error){
+        res.status(200).json({error:error})
+    }
+  })
+
+  app.post("/addUsers",(req,res)=>{
+    try{
+        UserDetail.create(req.body).then((el)=>res.json(el))
+        .catch(error => res.json(error))
+    }
+    catch(error){
+        console.log(error)
+    }
+  })
+
+  app.get("/getData",(req,res)=>{
+    res.json("Success")
+  })
   app.get('/getUsers/:id',(req,res)=>{
     try{
         const id = req.params.id
@@ -84,7 +108,7 @@ app.post('/entry',async(req,res)=>{
         res.send(newUpd)
     }
     catch(error){
-        console.lof(error)
+        console.log(error)
     }
   })
 
@@ -98,7 +122,7 @@ app.post('/entry',async(req,res)=>{
         }
         var token = jwt.sign(user,process.env.ACCESS_TOKEN_SECRET)
         console.log(token)
-        res.json(token)
+        res.send(token)
         res.cookie('token',token,{maxAge:365*24*60*60*1000})
 
     }

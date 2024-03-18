@@ -5,6 +5,7 @@ import { Link ,Route ,Routes} from 'react-router-dom'
 import Form from './Component/Form'
 import Update from './Component/Update'
 import Login from './Component/Login'
+import Dropuser from './Component/Dropuser'
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   
   const handleLogout = () => {
     document.cookie = `username=; expires=Thu, 01 Jan 1970 00:00:00 GMT`;  
+    document.cookie = `token=; expires=Thu, 01 Jan 1970 00:00:00 GMT`
   }
   
 
@@ -36,8 +38,9 @@ function App() {
 
         <form>
           <input type='text' placeholder='Search items' ></input>
+         
         </form>
-
+        <Dropuser/>
       </div>
       
       <div>
@@ -48,7 +51,7 @@ function App() {
         <Route path='/login' element={<Login/>}></Route>
         
       </Routes>
-
+      
 
       </div>
 
