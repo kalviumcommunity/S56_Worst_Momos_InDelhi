@@ -5,7 +5,7 @@ import { Link ,Route ,Routes} from 'react-router-dom'
 import Form from './Component/Form'
 import Update from './Component/Update'
 import Login from './Component/Login'
-import Dropuser from './Component/Dropuser'
+// import Dropuser from './Component/Dropuser'
 
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
           <li>Contact Us</li>
           <Link to="/form"><button className='form'>Form</button></Link>
           <Link to="/login"><button className='login'>LogIn</button></Link>
-          <button className='log' onClick={handleLogout} classname='logout'>LogOut</button>
+          <button className='log' onClick={handleLogout}>LogOut</button>
           
         </ul>
       </div>
@@ -40,7 +40,7 @@ function App() {
           <input type='text' placeholder='Search items' ></input>
          
         </form>
-        <Dropuser/>
+        {/* <Dropuser/> */}
       </div>
       
       <div>
