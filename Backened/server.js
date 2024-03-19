@@ -8,7 +8,6 @@ let connection = 'Disconnected'
 const Router = require('./Route')
 const cors = require('cors')
 const UserModule = require('./User.js')
-const UserDetail = require('./User.js')
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
