@@ -4,14 +4,27 @@ import axios from 'axios'
 function Login(){
 const [username,setUsername] = useState("")
 const [password,setPassword] = useState("")
+const [user,setUser] = useState([])//edited
+
+
+useEffect(()=>{//edited 
+    axios.get('https://s56-worst-momos-indelhi.onrender.com/savedUsers')
+    .then((res)=>{setUser(res.data)})
+    .catch((error)=>console.log(error))
+},[])
+
+// let users = user.map((el)=>el.username)
+// console.log(users)
+
 const handleSubmit= (e)=>{
     e.preventDefault()
     console.log(true)
     try{
         document.cookie = `username=${username};expires=`+new Date(2028,2,1).toUTCString
-        axios.post('https://s56-worst-momos-indelhi.onrender.com/auth',{username,password})
+        sessionStorage.setItem('username',username)
+        axios.post('https://s56-worst-momos-indelhi.onrender.com/auth',{username})
         .then((response)=>{
-
+            console.log(response.data)
             document.cookie = `token=${response.data};expires=`+new Date(2028,2,1).toUTCString
         })
         .catch((err)=>console.error(err))
@@ -21,6 +34,16 @@ const handleSubmit= (e)=>{
     }
     catch(error){
         console.log(error)
+    }
+
+    if(username.includes(`${username}`)){
+        console.log(username)
+        return;
+    }else{
+        axios.post('https://s56-worst-momos-indelhi.onrender.com/addUsers')
+        .then((res)=>console.log(res))
+
+        
     }
 }
 
