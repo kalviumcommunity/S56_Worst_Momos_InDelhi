@@ -5,7 +5,7 @@ import { Link ,Route ,Routes} from 'react-router-dom'
 import Form from './Component/Form'
 import Update from './Component/Update'
 import Login from './Component/Login'
-import Dropuser from './Component/Dropuser'
+
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
   
   const handleLogout = () => {
     document.cookie = `username=; expires=Thu, 01 Jan 1970 00:00:00 GMT`;  
-    document.cookie = `token=; expires=Thu, 01 Jan 1970 00:00:00 GMT`
+    document.cookie = `token=; expires=Thu, 01 Jan 1970 00:00:00 GMT`; 
   }
   
 
@@ -30,18 +30,17 @@ function App() {
           <li>Contact Us</li>
           <Link to="/form"><button className='form'>Form</button></Link>
           <Link to="/login"><button className='login'>LogIn</button></Link>
-          <button className='log' onClick={handleLogout} classname='logout'>LogOut</button>
+          <button className='log' onClick={handleLogout}>LogOut</button>
           
         </ul>
       </div>
-      <div className='Search'>
+      {/* <div className='Search'>
 
         <form>
           <input type='text' placeholder='Search items' ></input>
-         
         </form>
-        <Dropuser/>
-      </div>
+    <Dropuser/>
+      </div> */}
       
       <div>
       <Routes>
@@ -51,7 +50,7 @@ function App() {
         <Route path='/login' element={<Login/>}></Route>
         
       </Routes>
-      
+
 
       </div>
 

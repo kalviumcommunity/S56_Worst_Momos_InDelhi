@@ -1,5 +1,5 @@
-const UserModule= require('./User.js')
-// const UserDetail = require('/User.js')
+const {UserModule,UserDetail}= require('./User.js')
+// const {UserDetail} = require('./User.js')
 const express = require('express')
 const app = express.Router()
 const port =  3200;
@@ -25,6 +25,27 @@ app.patch('/patch',(req,res)=>{
 app.put('/put',(req,res)=>{
     res.json('put')
 })
+
+app.get('/savedUsers',async (req,res)=>{//edited
+    try{
+        const data = await UserDetail.find()
+        res.json(data)
+    }
+    catch(error){
+        console.log(error)
+    }
+})
+
+app.post('/addUsers',async(req,res)=>{
+    try{
+       const response =  await UserDetail.create(req.body)
+       res.status(200).json(response)
+    }catch(err){
+        console.log('internal server error', err)
+    }
+    // .then((el)=>res.json(el))
+    // .catch((err)=>res.json(err))
+})
 app.post('/entry',async(req,res)=>{
     try{
         
@@ -45,29 +66,6 @@ app.post('/entry',async(req,res)=>{
     }
   })
 
-  app.get("/savedUser",async(req,res)=>{
-    try{
-        const data = await UserDetail.find({})
-        res.json(data)
-    }
-    catch(error){
-        res.status(200).json({error:error})
-    }
-  })
-
-  app.post("/addUsers",(req,res)=>{
-    try{
-        UserDetail.create(req.body).then((el)=>res.json(el))
-        .catch(error => res.json(error))
-    }
-    catch(error){
-        console.log(error)
-    }
-  })
-
-  app.get("/getData",(req,res)=>{
-    res.json("Success")
-  })
   app.get('/getUsers/:id',(req,res)=>{
     try{
         const id = req.params.id
@@ -108,7 +106,7 @@ app.post('/entry',async(req,res)=>{
         res.send(newUpd)
     }
     catch(error){
-        console.log(error)
+        console.lof(error)
     }
   })
 
@@ -122,8 +120,14 @@ app.post('/entry',async(req,res)=>{
         }
         var token = jwt.sign(user,process.env.ACCESS_TOKEN_SECRET)
         console.log(token)
-        res.send(token)
-        res.cookie('token',token,{maxAge:365*24*60*60*1000})
+        try{
+            const response =  await UserDetail.create(req.body)
+            res.send(token)
+            // res.status(200).json(response)
+            // res.cookie('token',token,{maxAge:365*24*60*60*1000})
+         }catch(err){
+             console.log('internal server error', err)
+         }
 
     }
     catch(error){
