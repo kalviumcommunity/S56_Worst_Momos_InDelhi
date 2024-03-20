@@ -104,7 +104,7 @@ app.post('/entry',async(req,res)=>{
         res.send(newUpd)
     }
     catch(error){
-        console.lof(error)
+        console.log(error)
     }
   })
 
